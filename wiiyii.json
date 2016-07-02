@@ -1,0 +1,5 @@
+{
+    namespace: 'survey',
+    receiver: 'http://erikqin.dc.wii.qq.com:8998/receiver',
+    debug: true
+}
