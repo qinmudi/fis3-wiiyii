@@ -1,7 +1,7 @@
 {
   "name": "fis3-wiiyii",
   "version": "1.0.0",
-  "description": "Support Smarty for yii in fis3",
+  "description": "微易，小巧而简单的yii框架解决方案",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
