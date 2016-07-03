@@ -28,7 +28,7 @@ fis.set('namespace', ' 模块名称');
 **远程部署**
 RECEIVER 为服务接收地址  
 DEPLOY_PATH 为项目部署路径  
-media 会开启默认yii模块化部署  
+media remote 会开启默认yii模块化部署  
 ```
 fis.media('remote').match('**', {
     deploy: fis.plugin('http-push', {
