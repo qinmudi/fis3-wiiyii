@@ -25,7 +25,7 @@ fis.require('wiiyii')(fis);
 fis.set('namespace', ' 模块名称');
 ```
 
-**远程部署**
+**远程部署**  
 RECEIVER 为服务接收地址  
 DEPLOY_PATH 为项目部署路径  
 media remote 会开启默认yii模块化部署  

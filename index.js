@@ -150,9 +150,9 @@ module.exports = function(fis, isMount) {
     }).match('/widget/**.{es,js,css,scss,png,ttf,woff,svg,woff2}', {
         release: '/fe/${static}/${namespace}/$1'
     }).match(/\/page\/(.+?)\/(.+?)\/(.+)/i, {
-        release: '/modules/$1/views/$2/$3'
+        release: '/protected/modules/$1/views/$2/$3'
     }).match('/{layout,widget}/**.tpl', {
-        release: '/views/${namespace}/$0'
+        release: '/protected/views/${namespace}/$0'
     });
 
     return {
