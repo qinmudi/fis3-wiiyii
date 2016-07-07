@@ -1,6 +1,6 @@
 {
   "name": "fis3-wiiyii",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "微易，小巧而简单的yii框架解决方案",
   "main": "index.js",
   "scripts": {

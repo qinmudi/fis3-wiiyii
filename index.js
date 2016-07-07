@@ -27,7 +27,7 @@ module.exports = function(fis, isMount) {
             useHash: true
         },
         '*.js': {
-            optimizer: fis.plugin('uglify-js')
+            optimizer: null
         },
         '*.scss': {
             parser: fis.plugin('sass'),
@@ -148,12 +148,14 @@ module.exports = function(fis, isMount) {
     }).match('/static/(**)', {
         release: '/fe/${static}/${namespace}/$1'
     }).match('/widget/**.{es,js,css,scss,png,ttf,woff,svg,woff2}', {
-        release: '/fe/${static}/${namespace}/$1'
+        release: '/fe/${static}/${namespace}/$0'
     }).match(/\/page\/(.+?)\/(.+?)\/(.+)/i, {
         release: '/protected/modules/$1/views/$2/$3'
     }).match('/{layout,widget}/**.tpl', {
         release: '/protected/views/${namespace}/$0'
-    });
+    }).match('*.js', {
+        optimizer: fis.plugin('uglify-js')
+    })
 
     return {
         loadPath: path.join(__dirname, 'node_modules'),
