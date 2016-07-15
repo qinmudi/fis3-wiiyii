@@ -18,6 +18,8 @@ module.exports = function(fis, isMount) {
 
     fis.set('server.type', 'smarty');
 
+    fis.set('project.ignore', ['*.bak', '/test/**', 'fis-conf.js', '*.conf', '*.md', 'component.json', '/components/**', '/plugin/**']);
+
     var matchRules = {
         // all release to $static dir
         '*': {
@@ -27,7 +29,7 @@ module.exports = function(fis, isMount) {
             useHash: true
         },
         '*.js': {
-            optimizer: null
+            optimizer: fis.plugin('uglify-js')
         },
         '*.scss': {
             parser: fis.plugin('sass'),
@@ -146,16 +148,16 @@ module.exports = function(fis, isMount) {
     fis.media('remote').match('/components/**', {
         release: '/fe/${static}/$&'
     }).match('/static/(**)', {
-        release: '/fe/${static}/${namespace}/$1'
-    }).match('/widget/**.{es,js,css,scss,png,ttf,woff,svg,woff2}', {
+        release: '/fe/${static}/${namespace}/$0'
+    }).match('/widget/(**)', {
         release: '/fe/${static}/${namespace}/$0'
     }).match(/\/page\/(.+?)\/(.+?)\/(.+)/i, {
         release: '/protected/modules/$1/views/$2/$3'
     }).match('/{layout,widget}/**.tpl', {
         release: '/protected/views/${namespace}/$0'
-    }).match('*.js', {
-        optimizer: fis.plugin('uglify-js')
-    })
+    }).match('{*-map.json,map.json}', {
+        release: '/protected/config/$0'
+    });
 
     return {
         loadPath: path.join(__dirname, 'node_modules'),
