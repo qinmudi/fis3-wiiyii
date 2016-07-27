@@ -18,7 +18,7 @@ module.exports = function(fis, isMount) {
 
     fis.set('server.type', 'smarty');
 
-    fis.set('project.ignore', ['*.bak', '/test/**', 'fis-conf.js', '*.conf', '*.md', 'component.json', '/components/**', '/plugin/**']);
+    fis.set('project.ignore', ['*.bak', 'fis-conf.js', '*.md', 'component.json', '/components/**', '/plugin/**']);
 
     var matchRules = {
         // all release to $static dir
@@ -155,8 +155,10 @@ module.exports = function(fis, isMount) {
         release: '/protected/modules/$1/views/$2/$3'
     }).match('/{layout,widget}/**.tpl', {
         release: '/protected/views/${namespace}/$0'
-    }).match('{*-map.json,map.json}', {
-        release: '/protected/config/$0'
+    }).match('{*-map.json,map.json,wiiui.json}', {
+        release: '/protected/config/wii_ui/$0'
+    }).match('server.conf',{
+        release: false
     });
 
     return {
