@@ -1,7 +1,7 @@
 {
   "name": "fis3-wiiyii",
-  "version": "1.0.2",
-  "description": "微易，小巧而简单的yii框架解决方案",
+  "version": "1.0.5",
+  "description": "微Yii，基于 yii 框架的 fis3解决方案",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
