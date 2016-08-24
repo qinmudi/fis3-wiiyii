@@ -148,9 +148,7 @@ module.exports = function(fis, isMount) {
     //远程部署设置
     fis.media('remote').match('/components/**', {
         release: '/fe/${static}/$&'
-    }).match('/static/(**)', {
-        release: '/fe/${static}/${namespace}/$0'
-    }).match('/widget/(**)', {
+    }).match('/{static,widget}/(**)', {
         release: '/fe/${static}/${namespace}/$0'
     }).match(/\/page\/(.+?)\/(.+?)\/(.+)/i, {
         release: '/protected/modules/$1/views/$2/$3'
@@ -160,45 +158,26 @@ module.exports = function(fis, isMount) {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('{smarty.conf,${namespace}.conf}', {
+    }).match('*.conf', {
         release: false
     }).match('/test/**', {
         release: false
     });
 
     //doc 部署
-    fis.media('doc').match('/components/**', {
-        release: '/library/wiiui/wau/fe/${static}/$&'
-    }).match('/static/(**)', {
+    fis.media('wiidoc').match('/components/**', {
+        release: '/fe/${static}/$&'
+    }).match('/{static,widget}/(**)', {
         release: '/fe/${static}/${namespace}/$0'
-    }).match('/widget/(**)', {
-        release: '/fe/${static}/${namespace}/$0'
+    }).match('/page/doc/**', {
+        release: false
     }).match(/\/page\/(.+?)\/(.+?)\/(.+)/i, {
         release: '/protected/modules/$1/views/$2/$3'
-    }).match('/page/{doc}/**', {
-        release: false
     }).match('/{layout,widget}/**.tpl', {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('{smarty.conf,${namespace}.conf}', {
-        release: false
-    }).match('/test/**', {
-        release: false
-    });
-
-    //lib部署
-    fis.media('lib').match('/components/**', {
-        release: '/protected/library/wiiui/wau/fe/${static}/$&'
-    }).match('/static/(**)', {
-        release: '/protected/library/wiiui/wau/fe/${static}/${namespace}/$0'
-    }).match('/widget/(**)', {
-        release: '/library/wiiui/wau/fe/${static}/${namespace}/$0'
-    }).match('/{layout,widget}/**.tpl', {
-        release: '/protected/library/wiiui/wau/views/${namespace}/$0'
-    }).match('{*-map.json,map.json,wiiui.json}', {
-        release: '/protected/library/wiiui/wau/config/wii_ui/$0'
-    }).match('{smarty.conf,${namespace}.conf}', {
+    }).match('*.conf', {
         release: false
     }).match('/test/**', {
         release: false
