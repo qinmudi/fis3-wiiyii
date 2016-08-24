@@ -160,7 +160,7 @@ module.exports = function(fis, isMount) {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('{smarty.conf,server-conf}', {
+    }).match('{smarty.conf,${namespace}.conf}', {
         release: false
     }).match('/test/**', {
         release: false
@@ -181,7 +181,7 @@ module.exports = function(fis, isMount) {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('{smarty.conf,server-conf}', {
+    }).match('{smarty.conf,${namespace}.conf}', {
         release: false
     }).match('/test/**', {
         release: false
@@ -198,7 +198,7 @@ module.exports = function(fis, isMount) {
         release: '/protected/library/wiiui/wau/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/library/wiiui/wau/config/wii_ui/$0'
-    }).match('{smarty.conf,server-conf}', {
+    }).match('{smarty.conf,${namespace}.conf}', {
         release: false
     }).match('/test/**', {
         release: false
