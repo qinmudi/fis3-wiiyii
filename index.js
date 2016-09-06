@@ -158,7 +158,7 @@ module.exports = function(fis, isMount) {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('*.conf', {
+    }).match('{*.conf,deploy.json}', {
         release: false
     }).match('/test/**', {
         release: false
@@ -177,7 +177,7 @@ module.exports = function(fis, isMount) {
         release: '/protected/views/${namespace}/$0'
     }).match('{*-map.json,map.json,wiiui.json}', {
         release: '/protected/config/wii_ui/$0'
-    }).match('*.conf', {
+    }).match('{*.conf,deploy.json}', {
         release: false
     }).match('/test/**', {
         release: false
